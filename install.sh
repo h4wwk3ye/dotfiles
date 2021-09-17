@@ -1,7 +1,30 @@
 #!/bin/zsh
 
-echo "Setting up MacOS\n"
+# Ascii art using https://onlineasciitools.com/convert-text-to-ascii-art
+cat << "EOF"
+   _____      _   _   _               _    _         __  __             ____      
+  / ____|    | | | | (_)             | |  | |       |  \/  |           / __ \     
+ | (___   ___| |_| |_ _ _ __   __ _  | |  | |_ __   | \  / | __ _  ___| |  | |___ 
+  \___ \ / _ \ __| __| | '_ \ / _` | | |  | | '_ \  | |\/| |/ _` |/ __| |  | / __|
+  ____) |  __/ |_| |_| | | | | (_| | | |__| | |_) | | |  | | (_| | (__| |__| \__ \
+ |_____/ \___|\__|\__|_|_| |_|\__, |  \____/| .__/  |_|  |_|\__,_|\___|\____/|___/
+                               __/ |        | |                                   
+                              |___/         |_|                                                                                                                                       
+  ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______  
+ |______|______|______|______|______|______|______|______|______|______|______|______|
+  ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ ______ 
+ |______|______|______|______|______|______|______|______|______|______|______|______|
+                                                                                                      
+EOF
 
+###############################################################################################
+
+cat << "EOF"
+ ___                                 _                  __        
+  |  ._   _ _|_  _. | | o ._   _    / \ |_    |\/|       /  _ |_  
+ _|_ | | _>  |_ (_| | | | | | (_|   \_/ | |   |  | \/   /_ _> | | 
+                               _|                  /              
+EOF
 # Check for Oh My Zsh and install if we don't have it
 if [[ ! $(which omz) ]] then
 	/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
@@ -9,6 +32,14 @@ else
 	echo "\nOh my zsh already installed\n"
 fi
 
+###############################################################################################
+
+cat << "EOF"
+ ___                                                                 
+  |  ._   _ _|_  _. | | o ._   _    |_|  _  ._ _   _  |_  ._ _       
+ _|_ | | _>  |_ (_| | | | | | (_|   | | (_) | | | (/_ |_) | (/_ \/\/ 
+                               _|                                                                  
+EOF
 # Check for Homebrew and install if we don't have it
 if [[ ! $(which brew) ]] then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -16,39 +47,76 @@ else
 	echo "\nHomebrew already installed\n"
 fi
 
+###############################################################################################
+
+cat << "EOF"
+ ___                                 _                                    _     
+  |  ._   _ _|_  _. | | o ._   _    |_) _        _  ._ |  _      _  | /| / \ |  
+ _|_ | | _>  |_ (_| | | | | | (_|   |  (_) \/\/ (/_ |  | (/_ \/ (/_ |  | \_/ |< 
+                               _|                                                                        
+EOF
+# Install powerlevel10k - https://github.com/romkatv/powerlevel10k
+powerLevel10kFolder=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+powerLevel10kUrl=https://github.com/romkatv/powerlevel10k.git
+if [[ ! -d "$powerLevel10kFolder" ]]; then
+	echo "Downloading powerlevel10k\n"
+	git clone --depth=1 $powerLevel10kUrl $powerLevel10kFolder
+else
+	echo "powerlevel10k already exist, updating it\n"
+	cd "$powerLevel10kFolder"
+	git pull $powerLevel10kUrl
+fi
+
+###############################################################################################
+
+cat << "EOF"
+ ___                                                                                    
+  |  ._   _ _|_  _. | | o ._   _     /\  ._  ._   _        _ o ._   _    |_  ._ _       
+ _|_ | | _>  |_ (_| | | | | | (_|   /--\ |_) |_) _>   |_| _> | | | (_|   |_) | (/_ \/\/ 
+                               _|        |   |                      _|                                    
+EOF
 # Update Homebrew recipes
 brew update
 
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
-brew bundle
+brew bundle --file=$HOME/.dotfiles/Brewfile
 
-# Removes directories if they exist and symlinks them file from the .dotfiles
+###############################################################################################
 
-rm -rf $HOME/.zshrc
-ln -sv $HOME/.dotfiles/.zshrc $HOME/.zshrc
-echo "Symlinked zshrc"
+cat << "EOF"
+  _                                                      _                     _          
+ /  ._ _   _. _|_ o ._   _     _    ._ _  | o ._  |    _|_ _  ._    _  _  ._ _|_ o  _   _ 
+ \_ | (/_ (_|  |_ | | | (_|   _> \/ | | | | | | | |<    | (_) |    (_ (_) | | |  | (_| _> 
+                         _|      /                                                  _|                              
+EOF
 
-rm -rf $HOME/.config/git
-ln -sv $HOME/.dotfiles/git $HOME/.config/git
-echo "Symlinked git excludes"
+checkSymlink() {
+	if [[ -L $1 ]]; then
+		echo 1
+		return
+	fi
+	echo 0
+}
 
-rm -rf $HOME/.gitconfig
-ln -sv $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
-echo "Symlinked git config"
+createSymLink() {
+	ln -sv $1 $2
+}
 
-rm -rf $HOME/.config/customScripts
-ln -sv $HOME/.dotfiles/customScripts $HOME/.config/customScripts
-echo "Symlinked customScripts for skhd and yabai"
+# Hashtable to map source links to destination
+declare -A configLocation
+configLocation[$HOME/.dotfiles/.zshrc]=$HOME/.zshrc
+configLocation[$HOME/.dotfiles/git]=$HOME/.config/git
+configLocation[$HOME/.dotfiles/.gitconfig]=$HOME/.gitconfig
+configLocation[$HOME/.dotfiles/customScripts]=$HOME/.config/customScripts
+configLocation[$HOME/.dotfiles/limelight]=$HOME/.config/limelight
+configLocation[$HOME/.dotfiles/skhd]=$HOME/.config/skhd
+configLocation[$HOME/.dotfiles/yabai]=$HOME/.config/yabai
 
-rm -rf $HOME/.config/limelight
-ln -sv $HOME/.dotfiles/limelight $HOME/.config/limelight
-echo "Symlinked limelight config"
-
-rm -rf $HOME/.config/skhd
-ln -sv $HOME/.dotfiles/skhd $HOME/.config/skhd
-echo "Symlinked skhd config"
-
-rm -rf $HOME/.config/yabai
-ln -sv $HOME/.dotfiles/yabai $HOME/.config/yabai
-echo "Symlinked yabai config"
+# Removes directories if they exist and are not symlinked. Then create symlinks from the .dotfiles
+for key value in ${(kv)configLocation}; do
+    if [[ $(checkSymlink $value) -eq "0" ]]; then
+    	rm -rf $value
+    	createSymLink $key $value
+    fi
+done
