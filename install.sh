@@ -62,7 +62,7 @@ if [[ ! -d "$powerLevel10kFolder" ]]; then
 	echo "Downloading powerlevel10k\n"
 	git clone --depth=1 $powerLevel10kUrl $powerLevel10kFolder
 else
-	echo "powerlevel10k already exist, updating it\n"
+	echo "powerlevel10k already installed, updating it\n"
 	cd "$powerLevel10kFolder"
 	git pull $powerLevel10kUrl
 fi
@@ -112,11 +112,49 @@ configLocation[$HOME/.dotfiles/customScripts]=$HOME/.config/customScripts
 configLocation[$HOME/.dotfiles/limelight]=$HOME/.config/limelight
 configLocation[$HOME/.dotfiles/skhd]=$HOME/.config/skhd
 configLocation[$HOME/.dotfiles/yabai]=$HOME/.config/yabai
+configLocation[$HOME/.dotfiles/.p10k.zsh]=$HOME/.p10k.zsh
+configLocation[$HOME/.dotfiles/.vim_runtime]=$HOME/.vim_runtime
+configLocation[$HOME/.dotfiles/.vimrc]=$HOME/.vimrc
 
 # Removes directories if they exist and are not symlinked. Then create symlinks from the .dotfiles
 for key value in ${(kv)configLocation}; do
+    rm -rf $value
     if [[ $(checkSymlink $value) -eq "0" ]]; then
     	rm -rf $value
     	createSymLink $key $value
     fi
 done
+
+###############################################################################################
+
+cat << "EOF"
+  __                                                             __         _  
+ (_ _|_  _. ._ _|_ o ._   _    \_/ _. |_   _. o    _. ._   _|   (_  |/ |_| | \ 
+ __) |_ (_| |   |_ | | | (_|    | (_| |_) (_| |   (_| | | (_|   __) |\ | | |_/ 
+                          _|                                                   
+EOF
+
+if [[ $(brew services list | grep skhd | awk '{print $2}') == "started" ]]; then
+    echo "SKHD already running"
+else
+    brew services start skhd
+fi
+
+
+if [[ $(brew services list | grep yabai | awk '{print $2}') == "started" ]]; then
+    echo "Yabai already running"
+else
+    brew services start yabai
+fi
+
+cat << "EOF"
+ ___                                 _ __  _ 
+  |  ._   _ _|_  _. | | o ._   _    |_  / |_ 
+ _|_ | | _>  |_ (_| | | | | | (_|   |  /_ |  
+                               _|            
+EOF
+
+$(brew --prefix)/opt/fzf/install --all
+
+# Source zshrc
+source ~/.zshrc

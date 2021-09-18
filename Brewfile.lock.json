@@ -14,22 +14,25 @@
         "revision": "6e5d303a447a15f231912de13d4ad0c16a7bfa51"
       },
       "homebrew/cask": {
-        "revision": "7764ed42228cba4ecc76d92dcaa76d8b40ac251a"
+        "revision": "92f545ab432ac329bf287e1bc729e233a427ba93"
       },
       "homebrew/cask-fonts": {
         "revision": "d5c6d711a41f218798c97aabd600635a8038cf91"
       },
       "homebrew/cask-versions": {
-        "revision": "a0d637ad8da899bccbec2b94d10e4d410b520bb8"
+        "revision": "aad47e14c4d68ccdd4f67b0d71ff10305d8f13aa"
       },
       "homebrew/core": {
-        "revision": "2f11f1a6d5d1d2d9146dbdd2e8a1a9b3b644ea2d"
+        "revision": "730efab3d0d115322a40dec636f9345fc91de831"
       },
       "homebrew/services": {
         "revision": "a99cbd09a128d401178c3bc4f67cf90de8bc0ab6"
       },
       "koekeishiya/formulae": {
         "revision": "14013bd892497b9aa9f67ddab993d1fc61691fb9"
+      },
+      "homebrew/cask-drivers": {
+        "revision": "00f619b08ef707c6736ca19e983e890379169acd"
       }
     },
     "brew": {
@@ -568,6 +571,40 @@
       "koekeishiya/formulae/yabai": {
         "version": "3.3.10",
         "bottle": false
+      },
+      "mackup": {
+        "version": "0.8.32",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "arm64_big_sur": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/mackup/blobs/sha256:be968ec450c3e2c28255f2c6e7928404e24498c907a05aed69e5a87e6ae8612e",
+              "sha256": "be968ec450c3e2c28255f2c6e7928404e24498c907a05aed69e5a87e6ae8612e"
+            },
+            "big_sur": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/mackup/blobs/sha256:24dca4cbc991aad8990c672e7a88fd975f33fefcdb0dbb70f9e6e0b10a19841d",
+              "sha256": "24dca4cbc991aad8990c672e7a88fd975f33fefcdb0dbb70f9e6e0b10a19841d"
+            },
+            "catalina": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/mackup/blobs/sha256:df736bcc51887e9621c00d2948c989db4f1d4b5234ab7e702b49933fc212705e",
+              "sha256": "df736bcc51887e9621c00d2948c989db4f1d4b5234ab7e702b49933fc212705e"
+            },
+            "mojave": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/mackup/blobs/sha256:5f413d937d26828065204eaf532ab280c9d642448a0ee4f280fc667cb03fc9e6",
+              "sha256": "5f413d937d26828065204eaf532ab280c9d642448a0ee4f280fc667cb03fc9e6"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/mackup/blobs/sha256:122a129953b8f46cfa6bc82185cfc98b5d59498c76e80850ceb374160651ca51",
+              "sha256": "122a129953b8f46cfa6bc82185cfc98b5d59498c76e80850ceb374160651ca51"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -660,6 +697,72 @@
         "options": {
           "full_name": "visual-studio-code"
         }
+      },
+      "agenda": {
+        "version": "13.1.1,195",
+        "options": {
+          "full_name": "agenda"
+        }
+      },
+      "authy": {
+        "version": "1.8.4",
+        "options": {
+          "full_name": "authy"
+        }
+      },
+      "datagrip": {
+        "version": "2021.2.2,212.5284.17",
+        "options": {
+          "full_name": "datagrip"
+        }
+      },
+      "dropbox": {
+        "version": "131.4.3968",
+        "options": {
+          "full_name": "dropbox"
+        }
+      },
+      "hammerspoon": {
+        "version": "0.9.90",
+        "options": {
+          "full_name": "hammerspoon"
+        }
+      },
+      "karabiner-elements": {
+        "version": "13.7.0",
+        "options": {
+          "full_name": "karabiner-elements"
+        }
+      },
+      "logitech-g-hub": {
+        "version": "latest",
+        "options": {
+          "full_name": "logitech-g-hub"
+        }
+      },
+      "microsoft-edge-dev": {
+        "version": "95.0.1000.0",
+        "options": {
+          "full_name": "microsoft-edge-dev"
+        }
+      },
+      "slack": {
+        "version": "4.19.0",
+        "options": {
+          "full_name": "slack"
+        }
+      },
+      "sublime-text": {
+        "version": "4.113",
+        "options": {
+          "full_name": "sublime-text"
+        }
+      },
+      "unnaturalscrollwheels": {
+        "version": "1.2.2",
+        "options": {
+          "full_name": "unnaturalscrollwheels"
+        }
       }
     },
     "mas": {
@@ -718,7 +821,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "3.2.12",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "2f11f1a6d5d1d2d9146dbdd2e8a1a9b3b644ea2d",
+        "Homebrew/homebrew-core": "730efab3d0d115322a40dec636f9345fc91de831",
         "CLT": "12.5.1.0.1.1623191612",
         "Xcode": "12.5",
         "macOS": "11.6"
