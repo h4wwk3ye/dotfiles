@@ -115,10 +115,10 @@ configLocation[$HOME/.dotfiles/yabai]=$HOME/.config/yabai
 configLocation[$HOME/.dotfiles/.p10k.zsh]=$HOME/.p10k.zsh
 configLocation[$HOME/.dotfiles/.vim_runtime]=$HOME/.vim_runtime
 configLocation[$HOME/.dotfiles/.vimrc]=$HOME/.vimrc
+configLocation[$HOME/.dotfiles/karabiner/karabiner.json]=$HOME/.config/karabiner/karabiner.json
 
 # Removes directories if they exist and are not symlinked. Then create symlinks from the .dotfiles
 for key value in ${(kv)configLocation}; do
-    rm -rf $value
     if [[ $(checkSymlink $value) -eq "0" ]]; then
     	rm -rf $value
     	createSymLink $key $value

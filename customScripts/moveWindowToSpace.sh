@@ -18,7 +18,6 @@ currentWindow=$(yabai -m query --windows --window | jq -re ".id")
 
 focusWindow() {
 	sleep .1 # animation because of SIP
-	echo $focusWindow
 	$(yabai -m window --focus $1)
 }
 
