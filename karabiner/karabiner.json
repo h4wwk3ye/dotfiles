@@ -16,7 +16,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Map Left Option plus h/j/k/l to Arrows + ; to end",
+                        "description": "Map Left Option plus h/j/k/l to arrow keys",
                         "manipulators": [
                             {
                                 "from": {
@@ -30,22 +30,6 @@
                                 "to": [
                                     {
                                         "key_code": "left_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "semicolon",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "end"
                                     }
                                 ],
                                 "type": "basic"
