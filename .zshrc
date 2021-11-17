@@ -19,7 +19,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 HIST_STAMPS="dd.mm.yyyy"
 
-plugins=(git colorize brew osx zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git colorize brew macos zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
