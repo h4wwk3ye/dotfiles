@@ -45,17 +45,18 @@ yabai -m rule --add app="Unite" manage=off
 yabai -m rule --add app="Kodi" manage=off
 yabai -m rule --add app="Coherence X" manage=off
 yabai -m rule --add app="Authy Desktop" manage=off
+yabai -m rule --add app="Calculator" manage=off
 yabai -m rule --add app="Microsoft Outlook" title="Outlook Preferences" manage=off
+yabai -m rule --add app="ACME" manage=off
 
 ## If I close the active window, focus on any other visible window.
 yabai -m signal --add event=window_destroyed action="bash /Users/tahmhd/.config/customScripts/windowFocusOnDestroy.sh"
 
 # make sure apps are opened in correct display
-yabai -m rule --add app="^ESPNcricinfo$" display=^1 
-yabai -m rule --add app="^Spotify$" display=^1 
-yabai -m rule --add app="^WhatsApp$" display=^1 
-yabai -m rule --add app="^Twitter$" display=^1 
-yabai -m rule --add app="^Microsoft Outlook$" display=^1 
-yabai -m rule --add app="^Slack$" display=^1 
+yabai -m rule --add app="Spotify" display=^4 
+yabai -m rule --add app="Microsoft Outlook" display=^1 
+yabai -m rule --add app="Slack" display=^1 
+
+# yabai -m config external_bar all:20:0
 
 echo "yabai configuration loaded.."
