@@ -30,8 +30,8 @@ switchSpace() {
 		focusWindow $windowOnThatSpace
 	else
 		# keep the focus on current display
-		curentDisplay=$(yabai -m query --displays --display | jq -re '.index')
-		$(yabai -m display --focus $curentDisplay)
+		currentDisplay=$(yabai -m query --displays --display | jq -re '.index')
+		$(yabai -m display --focus $currentDisplay)
 	fi
 }
 

@@ -59,3 +59,10 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 ### Fix slowness of pastes
 export JAVA_TOOLS_OPTIONS="-Dlog4j2.formatMsgNoLookups=true"
+export PATH="$PATH:$HOME/.spicetify"
+
+PATH="/Users/tahmhd/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/tahmhd/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/tahmhd/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/tahmhd/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/tahmhd/perl5"; export PERL_MM_OPT;
