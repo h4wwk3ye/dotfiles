@@ -60,15 +60,14 @@ yabai -m rule --add app="Microsoft Outlook" title="Outlook Preferences" manage=o
 yabai -m rule --add app="Mac Mouse Fix" manage=off
 yabai -m rule --add app="ACME" manage=off
 yabai -m rule --add app="Terminal" manage=off
+yabai -m rule --add app="Stickies" manage=off
 
 ## If I close the active window, focus on any other visible window.
 yabai -m signal --add event=window_destroyed action="bash /Users/tahmhd/.config/customScripts/windowFocusOnDestroy.sh"
 
 # make sure apps are opened in correct display
 yabai -m rule --add app="Spotify" display=^4 
-yabai -m rule --add app="Microsoft Outlook" display=^1 
-yabai -m rule --add app="Slack" display=^1 
 
-# yabai -m config external_bar all:20:0
+#yabai -m config external_bar all:30:0
 
 echo "yabai configuration loaded.."
