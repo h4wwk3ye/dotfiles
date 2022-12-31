@@ -3,7 +3,6 @@
 	email = tahmhd@amazon.com
 [core]
 	excludesfile = /Users/tahmhd/.config/git/excludes
-	pager = less -F -X
 [color]
 	ui = auto
 [push]

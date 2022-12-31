@@ -15,7 +15,7 @@ export ZSH="/Users/tahmhd/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 
 HIST_STAMPS="dd.mm.yyyy"
 
@@ -70,3 +70,4 @@ PERL_MB_OPT="--install_base \"/Users/tahmhd/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/tahmhd/perl5"; export PERL_MM_OPT;
 
 export PATH="/Applications/Fortify/Fortify_SCA_and_Apps_21.2.2/bin:$PATH"
+#eval "$(starship init zsh)"
