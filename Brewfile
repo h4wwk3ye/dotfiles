@@ -12,14 +12,13 @@ tap "koekeishiya/formulae"
 brew "libpng"
 brew "gcc"
 brew "btop"
-brew "python@3.9"
 brew "cliclick"
 brew "dbus"
 brew "ffmpeg"
 brew "ffmpeg@4"
 brew "fzf"
 brew "git"
-brew "python@3.10"
+brew "python@3.11"
 brew "gobject-introspection"
 brew "htop"
 brew "ifstat"
@@ -32,8 +31,10 @@ brew "neofetch"
 brew "neovim"
 brew "nghttp2"
 brew "node"
+brew "python@3.10"
+brew "node@14"
 brew "p7zip"
-brew "python@3.11"
+brew "python@3.9"
 brew "rsync"
 brew "ruby"
 brew "scrcpy"
@@ -51,7 +52,6 @@ brew "felixkratz/formulae/sketchybar"
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 cask "agenda"
-cask "amazon-music"
 cask "android-file-transfer"
 cask "android-platform-tools"
 cask "appcleaner"
@@ -86,9 +86,7 @@ cask "motrix"
 cask "nextcloud"
 cask "orion"
 cask "postman"
-cask "quip"
 cask "sf-symbols"
-cask "slack"
 cask "spotify"
 cask "sublime-text"
 cask "table-tool"
@@ -104,8 +102,11 @@ mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Irvue", id: 1039633667
 mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "Microsoft OneNote", id: 784801555
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Podurama", id: 1497491520
 mas "Swol", id: 1502303446
+mas "Tailscale", id: 1475387142
 mas "The Unarchiver", id: 425424353

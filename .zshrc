@@ -15,7 +15,7 @@ export ZSH="/Users/tahmhd/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 HIST_STAMPS="dd.mm.yyyy"
 
@@ -23,7 +23,7 @@ plugins=(git colorize brew macos zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+#source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -39,7 +39,7 @@ export DEVELOPER_ACCOUNT_ID="Tahmhd"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home
 
 # Add tunnel script
-source ~/.ssh/tunnel_script
+#source ~/.ssh/tunnel_script
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
