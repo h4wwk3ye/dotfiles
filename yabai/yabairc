@@ -18,33 +18,26 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  5
-yabai -m config bottom_padding               5
-yabai -m config left_padding                 5
-yabai -m config right_padding                5
+yabai -m config top_padding                  10
+yabai -m config bottom_padding               10
+yabai -m config left_padding                 10
+yabai -m config right_padding                10
 yabai -m config window_gap                   10
 
 # window configs
-yabai -m config window_border                on
-yabai -m config window_border_width          3
-yabai -m config window_border_radius         10
-yabai -m config active_window_border_color   0xFF00BFFF
-yabai -m config normal_window_border_color   0x00FFFFFF
-
-
-#yabai -m signal --add event=window_created action="echo \"create \$YABAI_WINDOW_ID\" | nc -U /tmp/yb_$USER.socket"
-#yabai -m signal --add event=window_destroyed action="echo \"destroy \$YABAI_WINDOW_ID\" | nc -U /tmp/yb_$USER.socket"
-#yabai -m signal --add event=space_changed action="echo \"query\" | nc -U /tmp/yb_$USER.socket"
-#yabai -m signal --add event=display_changed action="echo \"query\" | nc -U /tmp/yb_$USER.socket"
-#yabai -m signal --add event=mission_control_enter action="echo \"mission_control_enter\" | nc -U /tmp/yb_$USER.socket"
-#yabai -m signal --add event=mission_control_exit action="echo \"mission_control_exit\" | nc -U /tmp/yb_$USER.socket"
+#yabai -m config window_border                on
+#yabai -m config window_border_width          3
+#yabai -m config window_border_radius         10
+#yabai -m config active_window_border_color   0xFF00BFFF
+#yabai -m config normal_window_border_color   0x00FFFFFF
+#yabai -m config focus_follows_mouse          autoraise
 
 # ===== Rules ==================================
 
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
-yabai -m rule --add label="System Settings" app="^System Settings$" title=".*" layer=above manage=off
+yabai -m rule --add label="System Settings" app="^System Settings$" layer=above manage=off
 yabai -m rule --add label="System Information" app="^System Information$" title=".*" layer=above manage=off
 yabai -m rule --add label="Iterm2" app="^iTerm2$" manage=off
 yabai -m rule --add app="Cisco AnyConnect Secure Mobility Client" manage=off
@@ -64,6 +57,8 @@ yabai -m rule --add app="ACME" manage=off
 yabai -m rule --add app="Terminal" manage=off
 yabai -m rule --add app="Stickies" manage=off
 yabai -m rule --add app="^JetBrains Toolbox$" manage=off
+yabai -m rule --add app="^Browserosaurus$" manage=off
+yabai -m rule --add app="^Runner$" title="auth" manage=off
 
 ## If I close the active window, focus on any other visible window.
 yabai -m signal --add event=window_destroyed action="bash /Users/tahmhd/.config/customScripts/windowFocusOnDestroy.sh"
@@ -73,5 +68,7 @@ yabai -m rule --add app="Spotify" display=^4
 yabai -m rule --add app="scrcpy" space=17
 
 #yabai -m config external_bar all:45:0
+
+#borders hidpi=off active_color=0xFF47CBFF inactive_color=0x00FFFFFF blur_radius=0.5 width=5.0 style=round 2>/dev/null 1>&2 &
 
 echo "yabai configuration loaded.."

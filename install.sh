@@ -118,6 +118,7 @@ configLocation[$HOME/.dotfiles/.vimrc]=$HOME/.vimrc
 configLocation[$HOME/.dotfiles/karabiner/karabiner.json]=$HOME/.config/karabiner/karabiner.json
 configLocation[$HOME/.dotfiles/sketchybar]=$HOME/.config/sketchybar
 configLocation[$HOME/.dotfiles/starship.toml]=$HOME/.config/starship.toml
+configLocation[$HOME/.dotfiles/borders]=$HOME/.config/borders
 
 # Removes directories if they exist and are not symlinked. Then create symlinks from the .dotfiles
 for key value in ${(kv)configLocation}; do
@@ -143,11 +144,13 @@ else
 fi
 
 
-if [[ $(brew services list | grep yabai | awk '{print $2}') == "started" ]]; then
-    echo "Yabai already running"
+if [[ $(brew services list | grep borders | awk '{print $2}') == "started" ]]; then
+    echo "borders already running"
 else
-    brew services start yabai
+    brew services start borders
 fi
+
+yabai --start-service
 
 cat << "EOF"
  ___                                 _ __  _

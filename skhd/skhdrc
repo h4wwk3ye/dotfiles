@@ -11,8 +11,9 @@
 #    launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 hyper - z: \
     terminal-notifier -title "Yabai" -message "Restarting Yabai"; \
-    launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
-
+    yabai --restart-service
+    #launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+#hyper - z: yabai --restart-service
 ## Close active application
 hyper - backspace : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
 

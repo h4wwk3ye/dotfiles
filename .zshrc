@@ -19,7 +19,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 HIST_STAMPS="dd.mm.yyyy"
 
-plugins=(git colorize brew macos zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git colorize brew macos zsh-syntax-highlighting zsh-autosuggestions zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -71,3 +71,9 @@ PERL_MM_OPT="INSTALL_BASE=/Users/tahmhd/perl5"; export PERL_MM_OPT;
 
 export PATH="/Applications/Fortify/Fortify_SCA_and_Apps_21.2.2/bin:$PATH"
 #eval "$(starship init zsh)"
+
+export PATH="/Applications/Fortify/Fortify_SCA_and_Apps_22.1.0/bin:$PATH"
+
+export PATH="/Applications/Fortify/Fortify_SCA_and_Apps_22.1.0/bin:$PATH"
+
+eval $(thefuck --alias)
