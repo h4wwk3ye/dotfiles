@@ -36,7 +36,7 @@ alias bb='brazil-build; afplay /System/Library/Sounds/Funk.aiff'
 alias bbr='brazil-recursive-cmd --allPackages brazil-build; afplay /System/Library/Sounds/Funk.aiff'
 
 export DEVELOPER_ACCOUNT_ID="Tahmhd"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
 
 # Add tunnel script
 #source ~/.ssh/tunnel_script
@@ -68,12 +68,25 @@ PERL5LIB="/Users/tahmhd/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5L
 PERL_LOCAL_LIB_ROOT="/Users/tahmhd/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/Users/tahmhd/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/tahmhd/perl5"; export PERL_MM_OPT;
+BRAZILPYTHON_FAST_FAIL="true"
+
+
+export EDA_AUTO="$HOME/.config/eda/completion"
+mkdir -p $EDA_AUTO
+eda completions zsh > $EDA_AUTO/_eda
+fpath=($EDA_AUTO $fpath)
+autoload -Uz compinit
+compinit
+
 
 export PATH="/Applications/Fortify/Fortify_SCA_and_Apps_21.2.2/bin:$PATH"
 #eval "$(starship init zsh)"
 
-export PATH="/Applications/Fortify/Fortify_SCA_and_Apps_22.1.0/bin:$PATH"
 
-export PATH="/Applications/Fortify/Fortify_SCA_and_Apps_22.1.0/bin:$PATH"
 
 eval $(thefuck --alias)
+
+export PATH=$PATH:/Users/tahmhd/.spicetify
+
+# Created by `pipx` on 2025-09-16 18:20:30
+export PATH="$PATH:/Users/tahmhd/.local/bin"

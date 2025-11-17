@@ -58,7 +58,7 @@ yabai -m rule --add app="Terminal" manage=off
 yabai -m rule --add app="Stickies" manage=off
 yabai -m rule --add app="^JetBrains Toolbox$" manage=off
 yabai -m rule --add app="^Browserosaurus$" manage=off
-yabai -m rule --add app="^Runner$" title="auth" manage=off
+yabai -m rule --add app="Ente Auth" title="Ente Auth" manage=off
 
 ## If I close the active window, focus on any other visible window.
 yabai -m signal --add event=window_destroyed action="bash /Users/tahmhd/.config/customScripts/windowFocusOnDestroy.sh"
